@@ -1,0 +1,19 @@
+#copy makefile
+
+.PHONY : copy
+
+
+NETDIR := ~/workspace.net
+WORKDIR := ~/workspace
+
+#all:
+#	@echo "Use command \"make copy\" to copy data from $(NETDIR)/$(FOLDER) to $(WORKDIR)"
+
+ifdef COPYFOLDER
+copy:
+	@echo "Copying data from $(NETDIR)/$(COPYFOLDER) to $(WORKDIR)"
+	@cp -rft  $(WORKDIR) $(NETDIR)/$(COPYFOLDER)
+else
+copy:
+	@echo "COPYFOLDER not defined, set variable before executing target \"copy\""
+endif
